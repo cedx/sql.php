@@ -64,6 +64,6 @@ final class Parameter {
 	 * @internal
 	 */
 	public static function normalizeName(string $name): string {
-		return mb_strlen($name) == 0 ? "?" : (in_array($name[0], self::$prefixes) ? $name : ":$name");
+		return !mb_strlen($name) ? "?" : (in_array($name[0], self::$prefixes) ? $name : ":$name");
 	}
 }
